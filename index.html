@@ -718,7 +718,7 @@
 
       <a class="action" id="calendarLink" target="_blank" rel="noopener">Añadir al Calendario</a>
       <div class="rsvp-wrap">
-        <a class="action primary" id="rsvpLink" href="https://wa.me/526181071171?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Daniela%20y%20Valent%C3%ADn%20💍" target="_blank" rel="noopener">Confirmar Asistencia</a>
+        <a class="action primary" id="rsvpLink">Confirmar Asistencia</a>
       </div>
 
       <div class="venue">
@@ -1068,14 +1068,15 @@
   }
 
 document.getElementById('rsvpLink').addEventListener('click', async function(e) {
+  const phone = "526181071171";
+  const mensaje = "Confirmo mi asistencia a la boda de Daniela y Valentín 💍";
 
-    const mensaje = "Confirmo mi asistencia a la boda de Daniela y Valentín 💍";
-
-    try {
-        await navigator.clipboard.writeText(mensaje);
-    } catch (error) {
-        console.log("No se pudo copiar automáticamente:", error);
-    }
+  try {
+    await navigator.clipboard.writeText(mensaje);
+  } catch (error) {
+    console.log("No se pudo copiar automáticamente:", error);
+  }  
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
 });
 
   document.querySelectorAll('#gallery button').forEach(btn=>{
