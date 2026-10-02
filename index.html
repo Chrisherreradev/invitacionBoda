@@ -718,7 +718,7 @@
 
       <a class="action" id="calendarLink" target="_blank" rel="noopener">Añadir al Calendario</a>
       <div class="rsvp-wrap">
-        <a class="action primary" id="rsvpLink" href="https://wa.me/?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Daniela%20y%20Valent%C3%ADn" target="_blank" rel="noopener">Confirmar Asistencia</a>
+        <a class="action primary" id="rsvpLink" href="https://chat.whatsapp.com/JgLdwCZED64CEW2BiivGlu?s=qt&p=i&mlu=4&ilr=4" target="_blank" rel="noopener">Confirmar Asistencia</a>
       </div>
 
       <div class="venue">
@@ -1066,6 +1066,17 @@
     lightbox.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
   }
+
+document.getElementById('rsvpLink').addEventListener('click', async function(e) {
+
+    const mensaje = "Confirmo mi asistencia a la boda de Daniela y Valentín 💍";
+
+    try {
+        await navigator.clipboard.writeText(mensaje);
+    } catch (error) {
+        console.log("No se pudo copiar automáticamente:", error);
+    }
+});
 
   document.querySelectorAll('#gallery button').forEach(btn=>{
     btn.addEventListener('click',()=>show(Number(btn.dataset.index)));
